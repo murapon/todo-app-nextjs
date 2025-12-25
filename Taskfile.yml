@@ -1,0 +1,54 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  # ===================
+  # 日常の開発コマンド
+  # ===================
+  
+  up:
+    desc: "🚀 開発サーバーを起動（DB + Next.js）"
+    cmds:
+      - docker compose up
+    silent: true
+
+  down:
+    desc: "⏹️ 開発サーバーを停止"
+    cmds:
+      - docker compose down
+    silent: true
+
+  # ===================
+  # DB関連コマンド
+  # ===================
+
+  migrate:
+    desc: "📦 マイグレーションを実行"
+    cmds:
+      - docker compose run --rm next sh -c "corepack enable && npx prisma migrate dev"
+    silent: true
+
+  generate:
+    desc: "🔧 Prisma Clientを生成"
+    cmds:
+      - docker compose run --rm next sh -c "corepack enable && npx prisma generate"
+    silent: true
+
+  seed:
+    desc: "🌱 シードデータを投入"
+    cmds:
+      - docker compose run --rm next sh -c "corepack enable && npx prisma db seed"
+    silent: true
+
+  reset:
+    desc: "🔄 DBをリセット（データ全削除 + マイグレーション + シード）"
+    cmds:
+      - docker compose run --rm next sh -c "corepack enable && npx prisma migrate reset --force"
+    silent: true
+
+  studio:
+    desc: "🔍 Prisma Studioを起動（DBビューア）"
+    cmds:
+      - docker compose run --rm -p 5555:5555 next sh -c "corepack enable && npx prisma studio"
+    silent: true
