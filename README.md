@@ -10,7 +10,7 @@ Next.js App Router + Prisma + PostgreSQL で構築したタスク管理Webアプ
 
 | タスク一覧 | タスク詳細 |
 |-----------|-----------|
-| ![タスク一覧](docs/screenshots/task-list.png) | ![タスク詳細](docs/screenshots/task-detail.png) |
+| ![タスク一覧](docs/screenshots/screenshot-task-list.png) | ![タスク詳細](docs/screenshots/screenshot-task-detail.png) |
 
 ## ✨ 機能一覧
 
@@ -52,7 +52,7 @@ Next.js App Router + Prisma + PostgreSQL で構築したタスク管理Webアプ
 ┌─────────────┐       ┌─────────────┐       ┌─────────────┐
 │    users    │       │  projects   │       │    tasks    │
 ├─────────────┤       ├─────────────┤       ├─────────────┤
-│ id (PK)     │──┐    │ id (PK)     │──┐    │ id (PK)     │
+│ id (PK)     │──┐    │ id (PK)     │──┐    │ id (PK)     │──┐
 │ email       │  │    │ user_id(FK) │←─┘    │ project_id  │←─┘
 │ name        │  │    │ name        │       │ title       │
 │ google_id   │  │    │ deleted_at  │       │ description │
