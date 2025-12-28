@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { TaskWithProject } from "@/app/lib/data/tasks";
+import type { TaskWithProject } from "../../lib/data/tasks";
 
 type Props = {
   task: TaskWithProject;

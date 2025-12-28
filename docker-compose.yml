@@ -10,6 +10,10 @@ services:
     command: sh -c "corepack enable && pnpm install && pnpm dev"
     environment:
       DATABASE_URL: ${DATABASE_URL}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      AUTH_SECRET: ${AUTH_SECRET}
+      AUTH_URL: http://localhost:3000
     depends_on:
       - db
 

@@ -1,12 +1,15 @@
 import Link from "next/link";
-import { getTasksByUserId } from "./lib/data/tasks";
-import { TaskList } from "./components/tasks/TaskList";
+import { getTasksByUserIdPaginated } from "./lib/data/tasks";
+import { TaskListInfinite } from "./components/tasks/TaskListInfinite";
 
 // 仮のユーザーID
 const TEMP_USER_ID = "ebf4a9d7-a7ef-4566-a838-e437d6f27bb7";
 
 export default async function TaskListPage() {
-  const tasks = await getTasksByUserId(TEMP_USER_ID);
+  const { tasks, hasMore, totalCount } = await getTasksByUserIdPaginated(
+    TEMP_USER_ID,
+    1
+  );
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -21,7 +24,11 @@ export default async function TaskListPage() {
           </Link>
         </div>
 
-        <TaskList tasks={tasks} />
+        <TaskListInfinite
+          initialTasks={tasks}
+          initialHasMore={hasMore}
+          totalCount={totalCount}
+        />
       </div>
     </div>
   );

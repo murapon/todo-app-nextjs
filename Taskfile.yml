@@ -41,6 +41,12 @@ tasks:
       - docker compose run --rm next sh -c "corepack enable && npx prisma db seed"
     silent: true
 
+  seed-demo:
+    desc: "🎲 デモ用タスク100件を生成"
+    cmds:
+      - docker compose run --rm next sh -c "corepack enable && npx tsx prisma/seed-demo.ts"
+    silent: true
+
   reset:
     desc: "🔄 DBをリセット（データ全削除 + マイグレーション + シード）"
     cmds:

@@ -1,4 +1,4 @@
-import type { TaskWithProject } from "@/app/lib/data/tasks";
+import type { TaskWithProject } from "../../lib/data/tasks";
 import { TaskItem } from "./TaskItem";
 
 type Props = {
